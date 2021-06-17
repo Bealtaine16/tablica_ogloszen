@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 5px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body
+{
+    background: #fff;
+    min-height: 100vh;
+    /*background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;*/
+}
+header
+{
+    position: fixed;
+    display: flex;
+    /*justify-content: space-between;*/
+    top: 0;
+    left: 0;
+    align-items: center; /*środek czego szukasz*/
+    z-index: 100000; /*żeby ładnie się rolowało*/
+    width: 100%;
+    padding: 20px 20px;
+    background: #5EA5BD;
+    justify-content: space-between;
+    transition: 0.6s;
+}
+header.sticky
+{
+    padding: 5px 5px;
+    background: #095C79;
+    transition: 0.6s;
+}
+header .logo
+{
+    position: relative;
+    width: 3%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.6s;
+    margin-left: 30px;
+}
+header ul
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: right;
+    transition: 0.6s;
+}
+header ul li
+{
+    position: relative;
+    list-style: none;
+}
+header ul li a
+{
+    position: relative;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 800px;
+    transition: 0.6s;
+}
+a:hover{
+    color: #93c5d6;
+}
+.search{
+    width: 50%;
+    background-position: center;
+}
+.search input[type="search"]{
+    width: 50%;
+    padding: 1%;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    padding-left: 15px;
+    margin: 0 10px;
+}
+.search input[type="submit"]{
+    width: 25%;
+    padding: 1%;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+}
+.search input[type="submit"]:hover{
+    background: #93c5d6;
+}
+.gallery
+{
+    width: 100%;
+    height: 100vh;
+    position: center;
+    background-size: cover;
+    margin-top: 130px;
+}
+.adds
+{
+    background-color: #F9EADF;
+    color: #000; 
+    font-size: 20px;
+    border-radius: 30px;
+    padding: 3px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.add-title
+{
+    text-align:center; 
+    font-size: 40px;
+    text-transform: uppercase;
+}
+.advert
+{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.form {
+    width: 400px;
+    min-height: 400px;
+    background: #FFF;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,.3);
+    padding: 40px 30px;
+    background-position: center;
+    margin-top: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form .form-text {
+    color: #111;
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 20px;
+    display: block;
+    text-transform: capitalize;
+}
+
+.form .login-register .input-group {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 25px;
+}
+
+.form .login-register .input-group input {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #e7e7e7;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border-radius: 30px;
+    background: transparent;
+    outline: none;
+    transition: .3s;
+}
+
+.form .login-register .input-group input:focus, .form .login-register .input-group input:valid {
+    border-color: #a29bfe;
+}
+
+.form .login-register .input-group .btn {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    text-align: center;
+    border: none;
+    background: #095C79;
+    outline: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    color: #FFF;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.form .login-register .input-group .btn:hover {
+    transform: translateY(-5px);
+    background: #6c5ce7;
+}
+
+.login-register-text {
+    color: #111;
+    font-weight: 600;
+}
+
+.login-register-text a {
+    text-decoration: none;
+    color: #095C79;
+}
+
+.form .add .input-group {
+    height: 50px;
+    margin-bottom: 25px;
+}
+
+.form .add .input-group input {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #e7e7e7;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border-radius: 30px;
+    background: transparent;
+    outline: none;
+    transition: .3s;
+}
+
+.form .add .input-group select {
+    width: 86%;
+    height: 100%;
+    border: 2px solid #e7e7e7;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border-radius: 30px;
+    background: transparent;
+    outline: none;
+    transition: .3s;
+}
+
+.form .add .input-group input:focus, .form .add .input-group input:valid {
+    border-color: #095C79;
+}
+
+.form .add .input-group .btn {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    text-align: center;
+    border: none;
+    background: #5EA5BD;
+    outline: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    color: #FFF;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.form .add .input-group .btn:hover {
+    transform: translateY(-5px);
+    background: #095C79;
+}
