@@ -13,7 +13,7 @@ if (isset($_SESSION['login'])) {
 
 if (isset($_POST['submit'])) {
 	$email = $_POST['email'];
-	$password = $_POST['password'];
+	$password = md5($_POST['password']);
 
 	$email = htmlentities($email, ENT_QUOTES, "UTF-8");
 	$password = htmlentities($password, ENT_QUOTES, "UTF-8");
@@ -52,12 +52,6 @@ if (isset($_POST['submit'])) {
         <a class="logo" href="index.php">
           <img src="images/logo-white.png">
         </a>
-        <div class="search text-center">
-          <form action="" method="POST">
-              <input type="search" name="search" placeholder="Czego szukasz?" required>
-              <input type="submit" name="submit" value="Szukaj" class="btn">
-          </form>
-        </div>
           <ul>
               <li><a href="index.php">Strona główna</a></li>
               <li><a href="register.php">Zarejestruj się</a></li>

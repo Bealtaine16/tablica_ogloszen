@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
 			$sql = "INSERT INTO users (full_name, username, email, phone_no, city, password) VALUES ('$full_name', '$username', '$email', '$phone_no', '$city', '$password')";
 			$result = mysqli_query($conn, $sql);
 			if ($result) {
-				$_SESSION['register'] = '<span style="color:green">Konto zostało pomyślnie dodane!<a href="login.php">Zaloguj się tutaj!</a></span>';
+				$_SESSION['register'] = '<span style="color:green">Konto zostało pomyślnie dodane!<a style="text-decoration: none; color:#5EA5BD" href="login.php">Zaloguj się tutaj!</a></span>';
 				$username = "";
 				$email = "";
 				$phone_no = "";
@@ -61,12 +61,6 @@ if (isset($_POST['submit'])) {
         <a class="logo" href="index.php">
           <img src="images/logo-white.png">
         </a>
-        <div class="search text-center">
-          <form action="" method="POST">
-              <input type="search" name="search" placeholder="Czego szukasz?" required>
-              <input type="submit" name="submit" value="Szukaj" class="btn">
-          </form>
-        </div>
           <ul>
               <li><a href="index.php">Strona główna</a></li>
               <li><a href="register.php">Zarejestruj się</a></li>
