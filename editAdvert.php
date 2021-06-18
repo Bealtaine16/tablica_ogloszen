@@ -10,27 +10,45 @@
     header("Location: index.php");
 }
 
-  if (isset($_POST['submit'])) {
+  $add_id = $_GET['add_id'];
+  $add = mysqli_query($conn, "SELECT * FROM adverts WHERE add_id='$add_id'");
+  $row = mysqli_fetch_assoc($add);
+  $title = $row['title'];
+  $image = $row['image'];
+  $description = $row['description'];
+  $price = $row['price'];
+  $category = $row['category'];
+
+  if (isset($_POST['edit'])) {
+  $tmp_image = $_FILES['tmp_image']['name'];
     $title = $_POST['title'];
-  	$image = $_FILES['image']['name'];
-  	$description = $_POST['description'];
+    if ($tmp_image != "") $image = $_FILES['tmp_image']['name'];
+    $description = $_POST['description'];
     $price = $_POST['price'];
     $category = $_POST['category'];
-    $username = $_SESSION['username'];
-    $phone_no = $_SESSION['phone_no'];
-    $city = $_SESSION['city'];
 
-  	$sql = "INSERT INTO adverts (title, image, description, price, category, username, phone_no, city) VALUES ('$title', '$image', '$description', '$price', '$category', '$username', '$phone_no', '$city')";
-  	$result = mysqli_query($conn, $sql);
-  	if ($result) {
-      $_SESSION['advert'] = '<span style="color:green">Ogłoszenie dodane! Możesz dodać następne, lub przejść do <a style="text-decoration: none; color:#5EA5BD" href="userSite.php">strony głównej</a></span>';
+    $sql = "UPDATE adverts SET title = '$title', image = '$image', description = '$description', price = '$price', category = '$category' WHERE add_id='$add_id'";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+      $_SESSION['editAdvert'] = '<span style="color:green">Ogłoszenie edytowane!</span>';
+    }else{
+      $_SESSION['editAdvert'] = '<span style="color:red">Coś poszło nie tak! Spróbuj edytować ogłoszenie jeszcze raz</span>';
+    }
+  }
+
+  if (isset($_POST['delete'])) {
+
+  	$sql = "DELETE FROM adverts WHERE add_id='$id'";
+  	$result1 = mysqli_query($conn, $sql);
+  	if ($result1) {
+      $_SESSION['editAdvert'] = '<span style="color:green">Ogłoszenie usunięte!</span>';
         $title = "";
         $image = "";
         $description = "";
         $price = "";        
         $category = "";
   	}else{
-      $_SESSION['advert'] = '<span style="color:red">Coś poszło nie tak! Spróbuj dodać ogłoszenie jeszcze raz</span>';
+      $_SESSION['editAdvert'] = '<span style="color:red">Coś poszło nie tak! Spróbuj usunąć ogłoszenie jeszcze raz</span>';
   	}
   }
 ?>
@@ -75,7 +93,7 @@
         </tr>
         <tr>
         <td class = input-group colspan='2'>
-          <input type="file" name="image" value="<?php echo $image; ?>" required>
+          <input type="file" name="tmp_image">
         </td>
         </tr>
         <tr>
@@ -92,16 +110,19 @@
         </td>
         </tr>
         <tr>
-        <td class = input-group colspan='2'>  
-          <button name="submit" class="btn">Dodaj</button>
+        <td class = input-group>  
+          <button name="edit" class="btn">Edytuj</button>
+        </td>
+        <td class = input-group>  
+          <button name="delete" class="btn">Usuń</button>
         </td>
         </tr>
         </table>
 			</form>
 <?php
-  if(isset($_SESSION['advert'])){
-    echo $_SESSION['advert'];
-    unset($_SESSION['advert']);
+  if(isset($_SESSION['editAdvert'])){
+    echo $_SESSION['editAdvert'];
+    unset($_SESSION['editAdvert']);
   }
 ?>
 		</div>

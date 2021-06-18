@@ -10,17 +10,8 @@ if ((isset($_SESSION['login'])) && ($_SESSION['login']==true))
 	exit();
 }
 
-if (isset($_POST['submit'])){
-  $search = $_POST["search"];
-  if($search == ""){
-    $result = mysqli_query($conn, "SELECT * FROM adverts");    
-  }else{
-    $sql = "SELECT * FROM adverts WHERE title LIKE '$search' OR description LIKE '$search' OR category LIKE '$search' OR username LIKE '$search' OR city LIKE '$search';";
-    $result = mysqli_query($conn, $sql); 
-  }
-}else{
-  $result = mysqli_query($conn, "SELECT * FROM adverts");
-}
+  $sql = "SELECT * FROM adverts WHERE title LIKE '$str'";
+  $result = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +30,7 @@ if (isset($_POST['submit'])){
         </a>
         <div class="search text-center">
           <form action="" method="POST">
-              <input type="search" name="search" placeholder="Czego szukasz?" value="<?php echo $_POST['search']; ?>">
+              <input type="search" name="search" placeholder="Czego szukasz?" required>
               <input type="submit" name="submit" value="Szukaj" class="btn">
           </form>
         </div>

@@ -9,16 +9,19 @@ if (!isset($_SESSION['login'])) {
     exit();
 }
 
+$username = $_SESSION['username'];
+$phone_no = $_SESSION['phone_no'];
+
 if (isset($_POST['submit'])){
   $search = $_POST["search"];
   if($search == ""){
-    $result = mysqli_query($conn, "SELECT * FROM adverts");    
+    $result = mysqli_query($conn, "SELECT * FROM adverts WHERE username='$username' AND phone_no='$phone_no'");    
   }else{
     $sql = "SELECT * FROM adverts WHERE title LIKE '$search' OR description LIKE '$search' OR category LIKE '$search' OR username LIKE '$search' OR city LIKE '$search';";
     $result = mysqli_query($conn, $sql); 
   }
 }else{
-  $result = mysqli_query($conn, "SELECT * FROM adverts");
+  $result = mysqli_query($conn, "SELECT * FROM adverts WHERE username='$username' AND phone_no='$phone_no'");
 }
 ?>
 
@@ -45,7 +48,7 @@ if (isset($_POST['submit'])){
           <ul>
               <li><a href="userSite.php">Strona główna</a></li>
             	<li><a href="advert.php">Dodaj ogłoszenie</a></li>
-              <li><a href="userAdvert.php">Twoje ogłoszenia</a></li>
+              <li><a href="#">Twoje ogłoszenia</a></li>
               <li><a href="logout.php">Wyloguj</a></li>
           </ul>
     </header>
@@ -67,12 +70,13 @@ if (isset($_POST['submit'])){
                 echo "<td style='text-align:center' colspan='2'>".$row['description']."</td>";
                 echo "</tr>";
                 echo "<tr>";
-                echo "<td style='text-align:left; font-size: 15px;'>Sprzedający: ".$row['username']."</td>";
-                echo "<td style='text-align:right; font-size: 15px;'>Nr telefonu: ".$row['phone_no']."</td>";
                 echo "</tr>";
                 echo "<tr>";
-                echo "<td style='text-align:left; font-size: 10px;'>Miejscowość: ".$row['city']."</td>";
-                echo "<td style='text-align:right; font-size: 10px;'>Data dodania: ".$row['addDate']."</td>";
+                echo "<td style='text-align:right; font-size: 10px;' colspan='2'>Data dodania: ".$row['addDate']."</td>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<td class='input-group' colspan='2'>
+                  <a style='text-decoration: none;' href='editAdvert.php?add_id=".$row['add_id']."' class='btn'>Edytuj ogłoszenie</a></td>";
                 echo "</tr>";
                 echo "</table>";
                 echo "</div>";

@@ -173,7 +173,7 @@ a:hover{
 }
 
 .form .login-register .input-group input:focus, .form .login-register .input-group input:valid {
-    border-color: #a29bfe;
+    border-color: #095C79;
 }
 
 .form .login-register .input-group .btn {
@@ -182,7 +182,7 @@ a:hover{
     padding: 15px 20px;
     text-align: center;
     border: none;
-    background: #095C79;
+    background: #5EA5BD;
     outline: none;
     border-radius: 30px;
     font-size: 1.2rem;
@@ -193,7 +193,7 @@ a:hover{
 
 .form .login-register .input-group .btn:hover {
     transform: translateY(-5px);
-    background: #6c5ce7;
+    background: #095C79;
 }
 
 .login-register-text {
@@ -255,6 +255,31 @@ a:hover{
 }
 
 .form .add .input-group .btn:hover {
+    transform: translateY(-5px);
+    background: #095C79;
+}
+
+.gallery .input-group {
+    height: 25px;
+    margin-bottom: 25px;
+}
+
+.gallery .input-group .btn {
+    display: block;
+    width: 100%;
+    padding: 15px 15px;
+    text-align: center;
+    border: none;
+    background: #5EA5BD;
+    outline: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    color: #FFF;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.gallery .input-group .btn:hover {
     transform: translateY(-5px);
     background: #095C79;
 }
